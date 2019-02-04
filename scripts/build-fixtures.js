@@ -12,7 +12,7 @@ const fixtures = [
         extractSourceLocation: true,
     }],
     'FormattedHTMLMessage',
-    'FormattedMessage',
+    'Translate',
     ['moduleSourceName', {
         moduleSourceName: 'react-i18n',
     }],

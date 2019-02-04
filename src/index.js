@@ -10,8 +10,8 @@ import {sync as mkdirpSync} from 'mkdirp';
 import printICUMessage from './print-icu-message';
 
 const COMPONENT_NAMES = [
-    'FormattedMessage',
-    'FormattedHTMLMessage',
+    'Translate',
+    'FormattedHTMLMessage'
 ];
 
 const FUNCTION_NAMES = [
@@ -227,7 +227,7 @@ export default function ({types: t}) {
                     file.log.warn(
                         `[React Intl] Line ${path.node.loc.start.line}: ` +
                         'Default messages are not extracted from ' +
-                        '<FormattedPlural>, use <FormattedMessage> instead.'
+                        '<FormattedPlural>, use <Translate> instead.'
                     );
 
                     return;
@@ -247,8 +247,8 @@ export default function ({types: t}) {
                     // In order for a default message to be extracted when
                     // declaring a JSX element, it must be done with standard
                     // `key=value` attributes. But it's completely valid to
-                    // write `<FormattedMessage {...descriptor} />` or
-                    // `<FormattedMessage id={dynamicId} />`, because it will be
+                    // write `<Translate {...descriptor} />` or
+                    // `<Translate id={dynamicId} />`, because it will be
                     // skipped here and extracted elsewhere. The descriptor will
                     // be extracted only if a `defaultMessage` prop exists.
                     if (descriptor.defaultMessage) {
