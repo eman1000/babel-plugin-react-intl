@@ -25,7 +25,7 @@ const MESSAGES  = Symbol('ReactIntlMessages');
 
 export default function ({types: t}) {
     function getModuleSourceName(opts) {
-        return opts.moduleSourceName || '../../localization/index' || '../localization/index' || './localization/index';
+        return opts.moduleSourceName || 'react-intl';
     }
 
     function evaluatePath(path) {
