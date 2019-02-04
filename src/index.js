@@ -233,7 +233,8 @@ export default function ({types: t}) {
                     return;
                 }
 
-                if (referencesImport(name, moduleSourceName, COMPONENT_NAMES)) {
+                //if (referencesImport(name, moduleSourceName, COMPONENT_NAMES)) {
+                if (name.node.name === "Translate") {
                     const attributes = path.get('attributes')
                         .filter((attr) => attr.isJSXAttribute());
 
