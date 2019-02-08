@@ -10,6 +10,7 @@ import {sync as mkdirpSync} from 'mkdirp';
 import printICUMessage from './print-icu-message';
 
 const COMPONENT_NAMES = [
+    'Translate',
     'FormattedMessage',
     'FormattedHTMLMessage',
 ];
