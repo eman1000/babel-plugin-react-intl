@@ -10,8 +10,8 @@ import {sync as mkdirpSync} from 'mkdirp';
 import printICUMessage from './print-icu-message';
 
 const COMPONENT_NAMES = [
-    'Translate',
-    'FormattedHTMLMessage'
+    'FormattedMessage',
+    'FormattedHTMLMessage',
 ];
 
 const FUNCTION_NAMES = [
@@ -227,14 +227,13 @@ export default function ({types: t}) {
                     file.log.warn(
                         `[React Intl] Line ${path.node.loc.start.line}: ` +
                         'Default messages are not extracted from ' +
-                        '<FormattedPlural>, use <Translate> instead.'
+                        '<FormattedPlural>, use <FormattedMessage> instead.'
                     );
 
                     return;
                 }
 
                 //if (referencesImport(name, moduleSourceName, COMPONENT_NAMES)) {
-                if (name.node.name === "Translate") {
                     const attributes = path.get('attributes')
                         .filter((attr) => attr.isJSXAttribute());
 
@@ -248,8 +247,8 @@ export default function ({types: t}) {
                     // In order for a default message to be extracted when
                     // declaring a JSX element, it must be done with standard
                     // `key=value` attributes. But it's completely valid to
-                    // write `<Translate {...descriptor} />` or
-                    // `<Translate id={dynamicId} />`, because it will be
+                    // write `<FormattedMessage {...descriptor} />` or
+                    // `<FormattedMessage id={dynamicId} />`, because it will be
                     // skipped here and extracted elsewhere. The descriptor will
                     // be extracted only if a `defaultMessage` prop exists.
                     if (descriptor.defaultMessage) {
@@ -273,7 +272,7 @@ export default function ({types: t}) {
                         // Tag the AST node so we don't try to extract it twice.
                         tagAsExtracted(path);
                     }
-                }
+               // }
             },
 
             CallExpression(path, state) {
