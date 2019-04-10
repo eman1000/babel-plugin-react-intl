@@ -174,6 +174,9 @@ export default function ({types: t}) {
     }
 
     function referencesImport(path, mod, importedNames) {
+        if(importedNames.hasOwnProperty("defineMessages")){
+            return true
+        }
         if (!(path.isIdentifier() || path.isJSXIdentifier())) {
             return false;
         }
